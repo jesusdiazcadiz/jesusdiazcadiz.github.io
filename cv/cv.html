@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Jesús Díaz Cádiz · CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --tinta: #0f172a; --gris: #475569; --gris-2: #64748b; --linea: #e2e8f0;
+    --acento: #047857; --acento-suave: #ecfdf5; --lateral: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; color: var(--tinta);
+    font-size: 9.6pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .pagina { width: 210mm; height: 297mm; overflow: hidden; display: grid; grid-template-columns: 64mm 1fr; grid-template-rows: auto minmax(0, 1fr) auto; page-break-after: always; }
+  .pagina--2 { grid-template-rows: minmax(0, 1fr) auto; }
+  .lateral, .principal { min-height: 0; overflow: hidden; }
+  .pagina:last-child { page-break-after: auto; }
+
+  /* ---- cabecera ---- */
+  .cabecera { grid-column: 1 / -1; padding: 14mm 16mm 7mm; border-bottom: 3px solid var(--acento); display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; }
+  .cabecera h1 { font-size: 23pt; font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+  .cabecera h1 span { color: var(--acento); }
+  .cabecera .rol { font-size: 10.2pt; color: var(--gris); font-weight: 500; margin-top: 2mm; white-space: nowrap; }
+  .contacto { text-align: right; flex: none; font-size: 8.6pt; color: var(--gris); line-height: 1.7; }
+  .contacto b { color: var(--tinta); font-weight: 600; }
+
+  /* ---- columnas ---- */
+  .lateral { background: var(--lateral); padding: 7mm 6mm 10mm 16mm; border-right: 1px solid var(--linea); }
+  .principal { padding: 7mm 16mm 10mm 8mm; }
+  .pagina--2 .lateral, .pagina--2 .principal { padding-top: 14mm; }
+
+  h2 {
+    font-size: 8.4pt; text-transform: uppercase; letter-spacing: .14em; color: var(--acento);
+    font-weight: 700; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 1px solid var(--linea);
+  }
+  section { margin-bottom: 6.5mm; }
+  section:last-child { margin-bottom: 0; }
+  p { color: var(--gris); }
+
+  /* lateral */
+  .lateral h3 { font-size: 8.6pt; font-weight: 700; margin: 2.5mm 0 1mm; color: var(--tinta); }
+  .lateral h3:first-of-type { margin-top: 0; }
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+  .etiquetas span { font-size: 7.6pt; padding: .8mm 2mm; border: 1px solid var(--linea); border-radius: 2mm; background: #fff; color: var(--tinta); }
+  .titulo { margin-bottom: 3mm; }
+  .titulo b { display: block; font-size: 8.8pt; font-weight: 600; line-height: 1.3; }
+  .titulo small { display: block; color: var(--gris-2); font-size: 7.8pt; margin-top: .4mm; }
+  .titulo em { color: var(--acento); font-style: normal; font-weight: 600; }
+  .claves li { font-size: 8.6pt; color: var(--gris); padding-left: 3.5mm; position: relative; margin-bottom: 1.2mm; }
+  .claves li::before { content: ''; position: absolute; left: 0; top: 1.8mm; width: 1.6mm; height: 1.6mm; background: var(--acento); border-radius: 50%; }
+  .claves b { color: var(--tinta); font-weight: 600; }
+
+  /* principal */
+  .perfil p { font-size: 9.6pt; }
+  .perfil p + p { margin-top: 2mm; }
+  .puesto { display: grid; grid-template-columns: 1fr auto; gap: 0 5mm; margin-bottom: 4.5mm; break-inside: avoid; }
+  .puesto h3 { font-size: 10.4pt; font-weight: 700; line-height: 1.3; }
+  .puesto h3 span { color: var(--gris); font-weight: 500; }
+  .puesto .fecha { color: var(--acento); font-weight: 600; font-size: 8.6pt; white-space: nowrap; padding-top: .8mm; }
+  .puesto .lugar { grid-column: 1 / -1; color: var(--gris-2); font-size: 8.4pt; margin-bottom: 1.2mm; }
+  .puesto ul { grid-column: 1 / -1; }
+  .puesto li { color: var(--gris); padding-left: 3.5mm; position: relative; margin-bottom: .8mm; }
+  .puesto li::before { content: '›'; position: absolute; left: 0; color: var(--acento); font-weight: 700; }
+  .compacto { columns: 2; column-gap: 6mm; }
+  .compacto .puesto { margin-bottom: 2.5mm; }
+  .compacto .puesto h3 { font-size: 9pt; }
+
+  .proyecto { break-inside: avoid; margin-bottom: 3.2mm; padding-left: 3.5mm; border-left: 2px solid var(--acento-suave); }
+  .proyecto b { display: block; font-size: 9.6pt; font-weight: 700; }
+  .proyecto p { font-size: 9.1pt; }
+  .proyecto small { display: block; color: var(--acento); font-size: 7.8pt; font-weight: 600; margin-top: .6mm; }
+
+  .pie { grid-column: 1 / -1; padding: 4mm 16mm; border-top: 1px solid var(--linea); font-size: 7.6pt; color: var(--gris-2); display: flex; justify-content: space-between; margin-top: auto; }
+</style>
+</head>
+<body>
+
+<!-- ================= PÁGINA 1 ================= -->
+<div class="pagina">
+  <header class="cabecera">
+    <div>
+      <h1>Jesús Díaz <span>Cádiz</span></h1>
+      <div class="rol">Manager IT · Administrador de sistemas informáticos en red</div>
+    </div>
+    <div class="contacto">
+      <div>Sevilla, España</div>
+      <div><b>jesusdiazcadiz@gmail.com</b></div>
+      <div>linkedin.com/in/jesús-díaz-cádiz-3b68631b3</div>
+      <div><b>jesusdiazcadiz.github.io</b></div>
+    </div>
+  </header>
+
+  <aside class="lateral">
+    <section>
+      <h2>Competencias</h2>
+      <h3>Sistemas y virtualización</h3>
+      <div class="etiquetas"><span>Windows Server</span><span>Active Directory</span><span>Hyper‑V</span><span>VMware vSphere</span><span>Exchange</span><span>IIS</span><span>Apache</span><span>Veeam</span><span>NAS</span><span>Azure</span></div>
+      <h3>Redes y seguridad</h3>
+      <div class="etiquetas"><span>MikroTik RouterOS</span><span>Cisco</span><span>WireGuard</span><span>Firewall</span><span>VLAN</span><span>DNS / DHCP</span><span>Videovigilancia</span></div>
+      <h3>Bases de datos y punto de venta</h3>
+      <div class="etiquetas"><span>SQL Server</span><span>Replicación</span><span>Rendimiento</span><span>Copias y logs</span><span>Cajas de autocobro</span><span>Integración ERP</span></div>
+      <h3>Automatización e IA</h3>
+      <div class="etiquetas"><span>PowerShell</span><span>Python</span><span>Task Scheduler</span><span>Claude Code</span><span>Ollama · IA local</span><span>Git</span></div>
+    </section>
+
+    <section>
+      <h2>Formación</h2>
+      <div class="titulo"><b>Técnico Superior en Administración de Sistemas Informáticos y Redes</b><small>I.E.S. Julio Verne, Sevilla · 2010 – 2012 · <em>Nota 9,4</em></small></div>
+      <div class="titulo"><b>Técnico Superior en Desarrollo de Aplicaciones Informáticas</b><small>I.E.S. Julio Verne, Sevilla · 2007 – 2010 · <em>Nota 8,7</em></small></div>
+      <div class="titulo"><b>Cisco CCNA</b><small>I.E.S. Julio Verne · 2011 – 2012</small></div>
+    </section>
+
+
+  </aside>
+
+  <main class="principal">
+    <section class="perfil">
+      <h2>Perfil</h2>
+      <p>Manager IT con más de catorce años en administración de sistemas informáticos en red. Responsable de la infraestructura tecnológica completa de una empresa de distribución con tres sedes: servidores, redes, virtualización, bases de datos, seguridad y copias.</p>
+      <p>Mi punto fuerte es el <b>estudio de proyectos y soluciones</b>: entender la necesidad del negocio, comparar alternativas, medirlas y poner en marcha la que funciona y se mantiene sola, con presupuesto ajustado. En segundo plano, aplico la <b>IA a la automatización y mejora del trabajo diario</b> del equipo.</p>
+    </section>
+
+    <section>
+      <h2>Experiencia</h2>
+
+      <div class="puesto">
+        <h3>Manager IT · Administrador de sistemas <span>· Plasticosur S.A.</span></h3>
+        <div class="fecha">feb. 2022 – actualidad</div>
+        <div class="lugar">Sevilla · Jornada completa</div>
+        <ul>
+          <li>Responsable de la infraestructura tecnológica de 3 sedes: servidores, red, virtualización, seguridad y copias.</li>
+          <li>Estudio de proyectos y soluciones: análisis de necesidades, comparativa de alternativas, pruebas y puesta en marcha.</li>
+          <li>Implantación de cajas de autocobro en tienda: estudio, integración con ERP y red, despliegue y soporte.</li>
+          <li>Gestión de redes, Microsoft Exchange, telefonía, VPN, videovigilancia y puestos de trabajo.</li>
+          <li>Administración de las bases de datos del ERP y la tienda online sobre SQL Server, incluida la replicación entre CPD y nube.</li>
+          <li>Aplicación de IA a la automatización del trabajo diario: asistente de manuales con modelos locales, herramientas de apoyo y scripts.</li>
+          <li>Soporte a usuarios de tiendas, almacén y oficinas.</li>
+        </ul>
+      </div>
+
+      <div class="puesto">
+        <h3>Administrador de sistemas <span>· Globaltec</span></h3>
+        <div class="fecha">jun. 2021 – feb. 2022</div>
+        <div class="lugar">Sevilla · Jornada completa</div>
+        <ul>
+          <li>Administración de sistemas para clientes y despliegue de infraestructura.</li>
+          <li>Instalación de redes, cámaras de videovigilancia y microinformática.</li>
+        </ul>
+      </div>
+
+      <div class="puesto">
+        <h3>Administrador de sistemas <span>· Decathlon España</span></h3>
+        <div class="fecha">abr. 2014 – sept. 2021</div>
+        <div class="lugar">Sevilla · Jornada completa</div>
+        <ul>
+          <li>Administración de equipos informáticos, sistemas Windows y soporte a tienda, compaginado con operativa de almacén.</li>
+        </ul>
+      </div>
+
+      <div class="puesto">
+        <h3>Administrador de sistemas <span>· Iavensis SL</span></h3>
+        <div class="fecha">ene. 2013 – dic. 2013</div>
+        <div class="lugar">Sevilla · Jornada completa</div>
+        <ul>
+          <li>Administración de equipos informáticos y soporte técnico sobre Windows.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie"><span>Jesús Díaz Cádiz · Currículum</span><span>Página 1 de 2</span></footer>
+</div>
+
+<!-- ================= PÁGINA 2 ================= -->
+<div class="pagina pagina--2">
+  <aside class="lateral">
+    <section>
+      <h2>Cómo trabajo</h2>
+      <ul class="claves">
+        <li><b>Entender</b> la necesidad real del negocio antes de mirar tecnología.</li>
+        <li><b>Comparar</b> alternativas con pruebas y medidas, no con folletos.</li>
+        <li><b>Elegir</b> la solución que funciona, se mantiene sola y cabe en el presupuesto.</li>
+        <li><b>Poner en marcha</b> con el equipo, con soporte cercano tras el arranque.</li>
+        <li><b>Documentar</b> todo, para que el conocimiento no dependa de una persona.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>En cifras</h2>
+      <ul class="claves">
+        <li><b>14+ años</b> en IT</li>
+        <li><b>3 sedes</b> gestionadas</li>
+        <li><b>600+ dispositivos</b> administrados</li>
+        <li><b>11 servidores</b> físicos y virtuales</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Cursos y certificaciones</h2>
+      <div class="titulo"><b>VMware vSphere 8: ESXi y vCenter</b><small>Udemy · 2024</small></div>
+      <div class="titulo"><b>MikroTik avanzado</b><small>Udemy · 2024</small></div>
+      <div class="titulo"><b>Microsoft Azure</b><small>Microsoft Education Partner · 2023 – 2024</small></div>
+    </section>
+    <section>
+      <h2>Primeros pasos</h2>
+      <div class="titulo"><b>Técnico microinformático</b><small>Desarrollo de Teleservicios SL · 2012 · prácticas</small></div>
+      <div class="titulo"><b>Vendedor de material deportivo</b><small>Decathlon España · 2012 – 2013</small></div>
+      <div class="titulo"><b>Mantenimiento y atención al cliente</b><small>Muebles Quivir SA · 2010 – 2011 · prácticas</small></div>
+      <div class="titulo"><b>Vendedor de electrodomésticos</b><small>Carrefour · 2009 – 2010</small></div>
+    </section>
+  </aside>
+
+  <main class="principal">
+    <section>
+      <h2>Proyectos destacados</h2>
+
+      <div class="proyecto">
+        <b>Cajas de autocobro en tienda</b>
+        <p>Estudio, selección e implantación de cajas de autocobro para clientes: integración con el ERP y los medios de pago, red dedicada, seguridad, pruebas con el equipo de tienda y soporte tras la puesta en marcha.</p>
+        <small>Punto de venta · Integración ERP · Red · Medios de pago</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Replicación de datos entre CPD y nube</b>
+        <p>Réplica transaccional del ERP y la tienda online hacia servidores en la nube para repartir carga y ganar continuidad, con monitorización de latencia y auto‑reparación tras reinicios. Latencia media de 8 segundos con cotejo del 100 % de los datos.</p>
+        <small>SQL Server · Replicación · Continuidad</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Asistente de manuales con IA local</b>
+        <p>Estudio y despliegue de un asistente que responde sobre unos 60 manuales internos para 50 usuarios, con modelos ejecutados en un servidor propio, sin coste de licencias ni salida de datos de la empresa.</p>
+        <small>Ollama · IA local · Servidor GPU</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Red, VPN y teletrabajo</b>
+        <p>Red multi‑sede sobre MikroTik, VPN WireGuard para móviles y teletrabajo con acceso por usuario, DNS interno, proxy inverso y publicación segura de servicios internos.</p>
+        <small>MikroTik · WireGuard · DNS · Apache · IIS</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Copias y continuidad del negocio</b>
+        <p>Migración de las imágenes de equipos a Veeam, copias de bases de datos y ficheros con verificación diaria, revisiones semanales automatizadas en ocho servidores y resumen de estado cada mañana.</p>
+        <small>Veeam · NAS · SQL Backups · Task Scheduler</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Rendimiento del ERP</b>
+        <p>Estudio de cinco días sobre bloqueos, paralelismo y disco del servidor de bases de datos, con propuesta por fases y una herramienta de supervisión que atribuye cada bajón de rendimiento a su origen.</p>
+        <small>SQL Server · Diagnóstico · Optimización</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Supervisión y automatización de sistemas</b>
+        <p>Panel interno que centraliza el estado de copias, vigilantes que reparan servicios caídos, avisos por Telegram, megafonía por zonas, pantallas de publicidad y kioscos de precios en tienda.</p>
+        <small>Servicios Windows · Telegram · Python</small>
+      </div>
+
+      <div class="proyecto">
+        <b>Inteligencia de precios</b>
+        <p>Sistema que compara el catálogo propio contra varios competidores por código de barras y alimenta un panel con alertas para el departamento comercial.</p>
+        <small>Python · Playwright · SQL Server</small>
+      </div>
+
+      <div class="proyecto">
+        <b>App de clientes en Google Play y App Store</b>
+        <p>Gestión de las cuentas de desarrollador de la empresa, verificación de identidad corporativa, firma y publicación de la app de clientes sin disponer de equipos Mac.</p>
+        <small>Google Play · App Store · Azure DevOps</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie"><span>Jesús Díaz Cádiz · jesusdiazcadiz@gmail.com · jesusdiazcadiz.github.io</span><span>Página 2 de 2</span></footer>
+</div>
+
+</body>
+</html>

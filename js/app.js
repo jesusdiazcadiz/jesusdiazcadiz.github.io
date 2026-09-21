@@ -182,10 +182,7 @@
   }
 
   /* ---- Descargar CV (imprimir a PDF) ---- */
-  document.getElementById('imprimir').addEventListener('click', function () {
-    reveals.forEach(el => el.classList.add('visible'));
-    setTimeout(() => window.print(), 50);
-  });
+  /* El botón "Descargar CV" enlaza directamente al PDF generado desde cv/cv.html */
 
   /* ---- Año del pie ---- */
   document.getElementById('anio').textContent = new Date().getFullYear();
