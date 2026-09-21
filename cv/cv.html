@@ -78,15 +78,14 @@
   /* proyectos en 3 bloques */
   .bloque { margin-bottom: 5mm; }
   .bloque__intro { font-size: 9pt; margin-bottom: 2.4mm; }
-  .modulos { columns: 2; column-gap: 6mm; }
-  .modulos li { font-size: 8.8pt; color: var(--tinta); padding-left: 4.2mm; position: relative; margin-bottom: 1mm; break-inside: avoid; }
-  .modulos li::before { content: ''; position: absolute; left: 0; top: 1.4mm; width: 2.4mm; height: 2.4mm; border: 1px solid var(--acento); border-radius: .6mm; background: var(--acento-suave); }
-  .modulos li::after { content: ''; position: absolute; left: .7mm; top: 1.9mm; width: 1.1mm; height: .6mm; border-left: 1.5px solid var(--acento); border-bottom: 1.5px solid var(--acento); transform: rotate(-45deg); }
   .lista { columns: 2; column-gap: 6mm; }
   .lista li { break-inside: avoid; margin-bottom: 2mm; padding-left: 3.2mm; position: relative; }
   .lista li::before { content: '›'; position: absolute; left: 0; top: -.2mm; color: var(--acento); font-weight: 700; }
   .lista b { display: block; font-size: 9pt; font-weight: 700; line-height: 1.3; }
   .lista span { display: block; font-size: 8.3pt; color: var(--gris); line-height: 1.35; }
+  .lista--simple li { margin-bottom: 1.2mm; font-size: 9pt; font-weight: 600; color: var(--tinta); line-height: 1.3; }
+  .bloque__titulo { font-size: 10.4pt; font-weight: 700; color: var(--tinta); margin: 0 0 2mm; }
+  .bloque__titulo + .bloque__intro { margin-top: -.5mm; }
 
   .pie { grid-column: 1 / -1; padding: 4mm 16mm; border-top: 1px solid var(--linea); font-size: 7.6pt; color: var(--gris-2); display: flex; justify-content: space-between; margin-top: auto; }
 </style>
@@ -228,9 +227,10 @@
 
   <main class="principal">
     <section class="bloque">
-      <h2>Proyectos · 01 Panel IT, automatización de toda la infraestructura</h2>
+      <h2>Proyectos</h2>
+      <h3 class="bloque__titulo">01 · Panel IT, automatización de toda la infraestructura</h3>
       <p class="bloque__intro">Portal propio que centraliza la supervisión, la operación y la automatización de los sistemas de las tres sedes. Corre como servicio, avisa por Telegram y se repara solo cuando algo cae.</p>
-      <ul class="modulos">
+      <ul class="lista lista--simple">
         <li>Supervisión de servidores y servicios en tiempo real</li>
         <li>Salud de discos (SMART)</li>
         <li>Alertas con histórico y avisos por Telegram</li>
@@ -249,7 +249,7 @@
     </section>
 
     <section class="bloque">
-      <h2>02 Infraestructura y negocio</h2>
+      <h3 class="bloque__titulo">02 · Infraestructura y negocio</h3>
       <ul class="lista">
         <li><b>Cajas de autocobro en tienda</b><span>Estudio, integración con el ERP y los medios de pago, despliegue y soporte.</span></li>
         <li><b>Replicación SQL Server entre CPD y nube</b><span>Continuidad y reparto de carga, con auto‑reparación de la cadena de logs.</span></li>
@@ -264,7 +264,7 @@
     </section>
 
     <section class="bloque">
-      <h2>03 Herramientas para tienda y usuarios</h2>
+      <h3 class="bloque__titulo">03 · Herramientas para tienda y usuarios</h3>
       <ul class="lista">
         <li><b>Asistente de manuales con IA local</b><span>60 manuales, 50 usuarios, modelos en servidor propio y sin coste de licencias.</span></li>
         <li><b>Portal de megafonía por zonas</b><span>Avisos programados y a demanda en tienda.</span></li>
