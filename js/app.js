@@ -14,7 +14,6 @@
   let temaGuardado = null;
   try { temaGuardado = localStorage.getItem(CLAVE_TEMA); } catch (e) {}
   if (temaGuardado) aplicarTema(temaGuardado);
-  else if (window.matchMedia('(prefers-color-scheme: light)').matches) aplicarTema('claro');
 
   document.getElementById('tema').addEventListener('click', function () {
     const nuevo = raiz.hasAttribute('data-tema') ? 'oscuro' : 'claro';
