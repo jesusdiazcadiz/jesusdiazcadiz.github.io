@@ -88,7 +88,7 @@
     const guion = [
       { cmd: 'whoami', out: ['<span class="c">Manager IT · Administrador de sistemas en red</span>'] },
       { cmd: 'uptime', out: ['<span class="o">14+ años en IT · 3 sedes · 600+ dispositivos · 0 fines de semana sin copias</span>'] },
-      { cmd: 'ls proyectos/', out: ['<span class="d">autocobro/</span>  <span class="d">replicacion_sql/</span>  <span class="d">vpn_wireguard/</span>', '<span class="d">ia_manuales/</span>  <span class="d">veeam/</span>  <span class="d">rendimiento_erp/</span>'] },
+      { cmd: 'ls proyectos/', out: ['<span class="d">panel_it/</span>  <span class="d">autocobro/</span>  <span class="d">replicacion_sql/</span>', '<span class="d">vpn_wireguard/</span>  <span class="d">ia_manuales/</span>  <span class="d">backups/</span>'] },
       { cmd: 'systemctl status infraestructura', out: ['<span class="ok">● active (running)</span> <span class="o">desde feb. 2022</span>'] },
       { cmd: 'cat contacto.txt', out: ['<span class="c">jesusdiazcadiz@gmail.com · Sevilla</span>'] }
     ];

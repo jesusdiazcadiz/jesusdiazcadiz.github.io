@@ -31,7 +31,7 @@
 
   /* ---- columnas ---- */
   .lateral { background: var(--lateral); padding: 6mm 6mm 6mm 16mm; border-right: 1px solid var(--linea); }
-  .principal { padding: 7mm 16mm 10mm 8mm; }
+  .principal { padding: 6mm 16mm 6mm 8mm; }
   .pagina--2 .lateral, .pagina--2 .principal { padding-top: 14mm; }
 
   h2 {
@@ -58,7 +58,7 @@
   /* principal */
   .perfil p { font-size: 9.6pt; }
   .perfil p + p { margin-top: 2mm; }
-  .puesto { display: grid; grid-template-columns: 1fr auto; gap: 0 5mm; margin-bottom: 4.5mm; break-inside: avoid; }
+  .puesto { display: grid; grid-template-columns: 1fr auto; gap: 0 5mm; margin-bottom: 3.4mm; break-inside: avoid; }
   .puesto h3 { font-size: 10.4pt; font-weight: 700; line-height: 1.3; }
   .puesto h3 span { color: var(--gris); font-weight: 500; }
   .puesto .fecha { color: var(--acento); font-weight: 600; font-size: 8.6pt; white-space: nowrap; padding-top: .8mm; }
@@ -74,6 +74,19 @@
   .proyecto b { display: block; font-size: 9.6pt; font-weight: 700; }
   .proyecto p { font-size: 9.1pt; }
   .proyecto small { display: block; color: var(--acento); font-size: 7.8pt; font-weight: 600; margin-top: .6mm; }
+
+  /* proyectos en 3 bloques */
+  .bloque { margin-bottom: 5mm; }
+  .bloque__intro { font-size: 9pt; margin-bottom: 2.4mm; }
+  .modulos { columns: 2; column-gap: 6mm; }
+  .modulos li { font-size: 8.8pt; color: var(--tinta); padding-left: 4.2mm; position: relative; margin-bottom: 1mm; break-inside: avoid; }
+  .modulos li::before { content: ''; position: absolute; left: 0; top: 1.4mm; width: 2.4mm; height: 2.4mm; border: 1px solid var(--acento); border-radius: .6mm; background: var(--acento-suave); }
+  .modulos li::after { content: ''; position: absolute; left: .7mm; top: 1.9mm; width: 1.1mm; height: .6mm; border-left: 1.5px solid var(--acento); border-bottom: 1.5px solid var(--acento); transform: rotate(-45deg); }
+  .lista { columns: 2; column-gap: 6mm; }
+  .lista li { break-inside: avoid; margin-bottom: 2mm; padding-left: 3.2mm; position: relative; }
+  .lista li::before { content: '›'; position: absolute; left: 0; top: -.2mm; color: var(--acento); font-weight: 700; }
+  .lista b { display: block; font-size: 9pt; font-weight: 700; line-height: 1.3; }
+  .lista span { display: block; font-size: 8.3pt; color: var(--gris); line-height: 1.35; }
 
   .pie { grid-column: 1 / -1; padding: 4mm 16mm; border-top: 1px solid var(--linea); font-size: 7.6pt; color: var(--gris-2); display: flex; justify-content: space-between; margin-top: auto; }
 </style>
@@ -135,6 +148,7 @@
         <ul>
           <li>Responsable de la infraestructura tecnológica de 3 sedes: servidores, red, virtualización, seguridad y copias.</li>
           <li>Estudio de proyectos y soluciones: análisis de necesidades, comparativa de alternativas, pruebas y puesta en marcha.</li>
+          <li>Diseño y puesta en marcha del Panel IT: portal propio que supervisa y automatiza toda la infraestructura y avisa por Telegram.</li>
           <li>Implantación de cajas de autocobro en tienda: estudio, integración con ERP y red, despliegue y soporte.</li>
           <li>Gestión de redes, Microsoft Exchange, telefonía, VPN, videovigilancia y puestos de trabajo.</li>
           <li>Administración de las bases de datos del ERP y la tienda online sobre SQL Server, incluida la replicación entre CPD y nube.</li>
@@ -167,7 +181,7 @@
         <div class="fecha">ene. 2013 – dic. 2013</div>
         <div class="lugar">Sevilla · Jornada completa</div>
         <ul>
-          <li>Administración de equipos informáticos y soporte técnico sobre Windows.</li>
+          <li>Administración de equipos y soporte técnico sobre Windows.</li>
         </ul>
       </div>
     </section>
@@ -213,62 +227,55 @@
   </aside>
 
   <main class="principal">
-    <section>
-      <h2>Proyectos destacados</h2>
+    <section class="bloque">
+      <h2>Proyectos · 01 Panel IT, automatización de toda la infraestructura</h2>
+      <p class="bloque__intro">Portal propio que centraliza la supervisión, la operación y la automatización de los sistemas de las tres sedes. Corre como servicio, avisa por Telegram y se repara solo cuando algo cae.</p>
+      <ul class="modulos">
+        <li>Supervisión de servidores y servicios en tiempo real</li>
+        <li>Salud de discos (SMART)</li>
+        <li>Alertas con histórico y avisos por Telegram</li>
+        <li>Inventario de dispositivos</li>
+        <li>Antenas WiFi: clientes, bloqueo y expulsión</li>
+        <li>Cámaras de videovigilancia</li>
+        <li>Impresoras</li>
+        <li>Conexiones externas</li>
+        <li>Estado de todas las copias de seguridad</li>
+        <li>Estado de la réplica SQL</li>
+        <li>Informes automáticos por email</li>
+        <li>Scripts y tareas programadas</li>
+        <li>Gestión de licencias: Office, Windows y otras</li>
+        <li>Vigilantes automáticos que reparan servicios caídos</li>
+      </ul>
+    </section>
 
-      <div class="proyecto">
-        <b>Cajas de autocobro en tienda</b>
-        <p>Estudio, selección e implantación de cajas de autocobro para clientes: integración con el ERP y los medios de pago, red dedicada, seguridad, pruebas con el equipo de tienda y soporte tras la puesta en marcha.</p>
-        <small>Punto de venta · Integración ERP · Red · Medios de pago</small>
-      </div>
+    <section class="bloque">
+      <h2>02 Infraestructura y negocio</h2>
+      <ul class="lista">
+        <li><b>Cajas de autocobro en tienda</b><span>Estudio, integración con el ERP y los medios de pago, despliegue y soporte.</span></li>
+        <li><b>Replicación SQL Server entre CPD y nube</b><span>Continuidad y reparto de carga, con auto‑reparación de la cadena de logs.</span></li>
+        <li><b>Rendimiento del ERP</b><span>Estudio de bloqueos y paralelismo y herramienta de supervisión.</span></li>
+        <li><b>Red multi‑sede con MikroTik</b><span>Enrutamiento, firewall y segmentación por VLAN.</span></li>
+        <li><b>VPN WireGuard</b><span>Acceso seguro por usuario para móviles y teletrabajo.</span></li>
+        <li><b>Copias de seguridad con verificación diaria</b><span>Servidores, bases de datos y ficheros, con aviso por Telegram.</span></li>
+        <li><b>Licenciamiento y saneado de servidores Windows</b><span>Regularización de ediciones y licencias.</span></li>
+        <li><b>Videovigilancia</b><span>Instalación y mantenimiento de cámaras en las sedes.</span></li>
+        <li><b>Renovación de cableado y electrónica de red</b><span>Nuevo cableado y switches en tiendas y almacén.</span></li>
+      </ul>
+    </section>
 
-      <div class="proyecto">
-        <b>Replicación de datos entre CPD y nube</b>
-        <p>Réplica transaccional del ERP y la tienda online hacia servidores en la nube para repartir carga y ganar continuidad, con monitorización de latencia y auto‑reparación tras reinicios. Latencia media de 8 segundos con cotejo del 100 % de los datos.</p>
-        <small>SQL Server · Replicación · Continuidad</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Asistente de manuales con IA local</b>
-        <p>Estudio y despliegue de un asistente que responde sobre unos 60 manuales internos para 50 usuarios, con modelos ejecutados en un servidor propio, sin coste de licencias ni salida de datos de la empresa.</p>
-        <small>Ollama · IA local · Servidor GPU</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Red, VPN y teletrabajo</b>
-        <p>Red multi‑sede sobre MikroTik, VPN WireGuard para móviles y teletrabajo con acceso por usuario, DNS interno, proxy inverso y publicación segura de servicios internos.</p>
-        <small>MikroTik · WireGuard · DNS · Apache · IIS</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Copias y continuidad del negocio</b>
-        <p>Migración de las imágenes de equipos a Veeam, copias de bases de datos y ficheros con verificación diaria, revisiones semanales automatizadas en ocho servidores y resumen de estado cada mañana.</p>
-        <small>Veeam · NAS · SQL Backups · Task Scheduler</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Rendimiento del ERP</b>
-        <p>Estudio de cinco días sobre bloqueos, paralelismo y disco del servidor de bases de datos, con propuesta por fases y una herramienta de supervisión que atribuye cada bajón de rendimiento a su origen.</p>
-        <small>SQL Server · Diagnóstico · Optimización</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Supervisión y automatización de sistemas</b>
-        <p>Panel interno que centraliza el estado de copias, vigilantes que reparan servicios caídos, avisos por Telegram, megafonía por zonas, pantallas de publicidad y kioscos de precios en tienda.</p>
-        <small>Servicios Windows · Telegram · Python</small>
-      </div>
-
-      <div class="proyecto">
-        <b>Inteligencia de precios</b>
-        <p>Sistema que compara el catálogo propio contra varios competidores por código de barras y alimenta un panel con alertas para el departamento comercial.</p>
-        <small>Python · Playwright · SQL Server</small>
-      </div>
-
-      <div class="proyecto">
-        <b>App de clientes en Google Play y App Store</b>
-        <p>Gestión de las cuentas de desarrollador de la empresa, verificación de identidad corporativa, firma y publicación de la app de clientes sin disponer de equipos Mac.</p>
-        <small>Google Play · App Store · Azure DevOps</small>
-      </div>
+    <section class="bloque">
+      <h2>03 Herramientas para tienda y usuarios</h2>
+      <ul class="lista">
+        <li><b>Asistente de manuales con IA local</b><span>60 manuales, 50 usuarios, modelos en servidor propio y sin coste de licencias.</span></li>
+        <li><b>Portal de megafonía por zonas</b><span>Avisos programados y a demanda en tienda.</span></li>
+        <li><b>Mejora del comprobador de precios de tienda</b><span>Nuevo verificador para clientes: kiosco con lector, foto y precio.</span></li>
+        <li><b>Portal de descargas con acceso controlado</b><span>Actualizaciones y documentación para el personal.</span></li>
+        <li><b>Subida de documentos a la web corporativa</b><span>Publicación de documentos para clientes en segundos.</span></li>
+        <li><b>Portal de redes sociales</b><span>Gestión centralizada de las cuentas de la empresa.</span></li>
+        <li><b>Inteligencia de precios</b><span>Comparación frente a la competencia por código de barras y tops por sección.</span></li>
+        <li><b>Mejora de las aplicaciones actuales</b><span>Evolución y mantenimiento continuo de las herramientas en uso.</span></li>
+        <li><b>Mejora del torno de acceso a tienda</b><span>Control de acceso más fiable y sencillo para el personal.</span></li>
+      </ul>
     </section>
   </main>
 

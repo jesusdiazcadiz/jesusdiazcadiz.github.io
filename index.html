@@ -142,6 +142,7 @@
           <ul>
             <li>Responsable de la infraestructura tecnológica de <strong>3 sedes</strong>: servidores, red, virtualización, seguridad y copias.</li>
             <li>Estudio de proyectos y soluciones: análisis de necesidades, comparativa de alternativas, pruebas y puesta en marcha.</li>
+            <li>Diseño y puesta en marcha del <strong>Panel IT</strong>: portal propio que supervisa y automatiza toda la infraestructura y avisa por Telegram.</li>
             <li>Implantación de cajas de autocobro en tienda: estudio, integración con el ERP y la red, despliegue y soporte.</li>
             <li>Gestión de redes, Microsoft Exchange, telefonía, VPN, videovigilancia y puestos de trabajo.</li>
             <li>Administración de las bases de datos del ERP y la tienda online sobre SQL Server, incluida la replicación entre CPD y nube.</li>
@@ -225,92 +226,81 @@
 <!-- ===== PROYECTOS ===== -->
 <section class="seccion" id="proyectos">
   <div class="contenedor">
-    <h2 class="seccion__titulo reveal"><span class="mono acento">// 03</span> Proyectos destacados</h2>
-    <p class="seccion__intro reveal">Soluciones de infraestructura que he estudiado, propuesto y puesto en producción. Todas siguen en uso diario.</p>
+    <h2 class="seccion__titulo reveal"><span class="mono acento">// 03</span> Proyectos</h2>
+    <p class="seccion__intro reveal">Lo que he estudiado, decidido y puesto en producción, en tres bloques. Todo sigue en uso diario.</p>
 
-    <div class="proyectos">
-
-      <article class="proyecto reveal proyecto--destacado">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h6M7 12h3"/></svg>
+    <!-- Grupo 1: Panel IT -->
+    <article class="grupo grupo--panel reveal">
+      <div class="grupo__cab">
+        <span class="grupo__num mono">01</span>
+        <div>
+          <h3>Panel IT · automatización de toda la infraestructura</h3>
+          <p>Portal propio que centraliza la supervisión, la operación y la automatización de los sistemas de las tres sedes. Corre como servicio, avisa por Telegram y se repara solo cuando algo cae. Es la herramienta con la que empieza y termina mi día.</p>
         </div>
-        <h3>Cajas de autocobro en tienda</h3>
-        <p>Estudio, selección e implantación de cajas de autocobro para clientes: integración con el ERP y los medios de pago, cableado y red dedicada, seguridad, pruebas con el equipo de tienda y soporte tras la puesta en marcha.</p>
-        <ul class="tags"><li>Punto de venta</li><li>Integración ERP</li><li>Red</li><li>Medios de pago</li></ul>
+      </div>
+      <ul class="modulos">
+        <li>Supervisión de servidores y servicios en tiempo real</li>
+        <li>Salud de discos (SMART)</li>
+        <li>Alertas con histórico y avisos por Telegram</li>
+        <li>Inventario de dispositivos</li>
+        <li>Antenas WiFi: clientes conectados, bloqueo y expulsión</li>
+        <li>Cámaras de videovigilancia</li>
+        <li>Impresoras</li>
+        <li>Conexiones externas</li>
+        <li>Estado de todas las copias de seguridad</li>
+        <li>Estado de la réplica SQL</li>
+        <li>Informes automáticos por email</li>
+        <li>Scripts y tareas programadas</li>
+        <li>Gestión de licencias: Office, Windows y otras</li>
+        <li>Vigilantes automáticos que reparan servicios caídos</li>
+      </ul>
+      <ul class="tags"><li>Servicio Windows</li><li>Telegram</li><li>SQL Server</li><li>PowerShell</li><li>Python</li></ul>
+    </article>
+
+    <div class="grupos">
+      <!-- Grupo 2 -->
+      <article class="grupo reveal">
+        <div class="grupo__cab">
+          <span class="grupo__num mono">02</span>
+          <div>
+            <h3>Infraestructura y negocio</h3>
+            <p>Proyectos de sistemas y red que sostienen la operación de la empresa.</p>
+          </div>
+        </div>
+        <ul class="lista">
+          <li><b>Cajas de autocobro en tienda</b><span>Estudio, integración con el ERP y los medios de pago, despliegue y soporte.</span></li>
+          <li><b>Replicación SQL Server entre CPD y nube</b><span>Continuidad y reparto de carga del ERP y la tienda online, con auto‑reparación de la cadena de logs.</span></li>
+          <li><b>Rendimiento del ERP</b><span>Estudio de bloqueos y paralelismo del servidor de bases de datos y herramienta de supervisión.</span></li>
+          <li><b>Red multi‑sede con MikroTik</b><span>Enrutamiento, firewall y segmentación por VLAN.</span></li>
+          <li><b>VPN WireGuard</b><span>Acceso seguro por usuario para móviles y teletrabajo.</span></li>
+          <li><b>Copias de seguridad con verificación diaria</b><span>Servidores, bases de datos y ficheros, con aviso automático por Telegram.</span></li>
+          <li><b>Licenciamiento y saneado de servidores Windows</b><span>Regularización de ediciones y licencias.</span></li>
+          <li><b>Videovigilancia</b><span>Instalación y mantenimiento de cámaras en las sedes.</span></li>
+          <li><b>Renovación de cableado y electrónica de red</b><span>Nuevo cableado y switches en tiendas y almacén.</span></li>
+        </ul>
       </article>
 
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+      <!-- Grupo 3 -->
+      <article class="grupo reveal">
+        <div class="grupo__cab">
+          <span class="grupo__num mono">03</span>
+          <div>
+            <h3>Herramientas para tienda y usuarios</h3>
+            <p>Soluciones a medida que resuelven necesidades concretas del negocio y del personal.</p>
+          </div>
         </div>
-        <h3>Replicación de datos entre CPD y nube</h3>
-        <p>Réplica transaccional del ERP y la tienda online hacia servidores en la nube para repartir carga y ganar continuidad, con monitorización de latencia y auto‑reparación tras reinicios.</p>
-        <ul class="tags"><li>SQL Server</li><li>Replicación</li><li>Continuidad</li></ul>
+        <ul class="lista">
+          <li><b>Asistente de manuales con IA local</b><span>Responde sobre 60 manuales internos a 50 usuarios, con modelos en servidor propio y sin coste de licencias.</span></li>
+          <li><b>Portal de megafonía por zonas</b><span>Avisos programados y a demanda en tienda.</span></li>
+          <li><b>Mejora del comprobador de precios de tienda</b><span>Nuevo verificador para clientes: kiosco con lector de códigos, foto y precio.</span></li>
+          <li><b>Portal de descargas con acceso controlado</b><span>Actualizaciones y documentación para el personal.</span></li>
+          <li><b>Subida de documentos a la web corporativa</b><span>Publicación de documentos para clientes en segundos.</span></li>
+          <li><b>Portal de redes sociales</b><span>Gestión centralizada de las cuentas de la empresa.</span></li>
+          <li><b>Inteligencia de precios</b><span>Comparación frente a la competencia por código de barras y tops por sección.</span></li>
+          <li><b>Mejora de las aplicaciones actuales</b><span>Evolución y mantenimiento continuo de las herramientas en uso.</span></li>
+          <li><b>Mejora del torno de acceso a tienda</b><span>Control de acceso más fiable y sencillo para el personal.</span></li>
+        </ul>
       </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zM8 16h8a4 4 0 0 1 4 4v2H4v-2a4 4 0 0 1 4-4z"/><path d="M9 8h.01M15 8h.01"/></svg>
-        </div>
-        <h3>Asistente de manuales con IA local</h3>
-        <p>Estudio y despliegue de un asistente que responde sobre unos 60 manuales internos para 50 usuarios, con modelos ejecutados en un servidor propio, sin coste de licencias ni salida de datos.</p>
-        <ul class="tags"><li>Ollama</li><li>IA local</li><li>Servidor GPU</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3>Red, VPN y teletrabajo</h3>
-        <p>Red multi‑sede sobre MikroTik, VPN WireGuard para móviles y teletrabajo con acceso por usuario, DNS interno, proxy inverso y publicación segura de servicios internos.</p>
-        <ul class="tags"><li>MikroTik</li><li>WireGuard</li><li>DNS</li><li>Apache</li><li>IIS</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
-        </div>
-        <h3>Copias y continuidad del negocio</h3>
-        <p>Migración de las imágenes de equipos a Veeam, copias de bases de datos y ficheros con verificación diaria, revisiones semanales automatizadas en ocho servidores y resumen de estado cada mañana.</p>
-        <ul class="tags"><li>Veeam</li><li>NAS</li><li>SQL Backups</li><li>Task Scheduler</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"/><path d="M3 21h18"/></svg>
-        </div>
-        <h3>Rendimiento del ERP</h3>
-        <p>Estudio de cinco días sobre bloqueos, paralelismo y disco del servidor de bases de datos, con propuesta por fases y una herramienta de supervisión que atribuye cada bajón a su origen.</p>
-        <ul class="tags"><li>SQL Server</li><li>Diagnóstico</li><li>Optimización</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-        </div>
-        <h3>Supervisión y automatización de sistemas</h3>
-        <p>Panel interno que centraliza el estado de copias, vigilantes que reparan servicios caídos, avisos por Telegram, megafonía por zonas, pantallas de publicidad y kioscos de precios en tienda.</p>
-        <ul class="tags"><li>Servicios Windows</li><li>Telegram</li><li>Python</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <h3>Inteligencia de precios</h3>
-        <p>Sistema que compara el catálogo propio contra varios competidores por código de barras y alimenta un panel con alertas para el departamento comercial.</p>
-        <ul class="tags"><li>Python</li><li>Playwright</li><li>SQL Server</li></ul>
-      </article>
-
-      <article class="proyecto reveal">
-        <div class="proyecto__icono">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
-        </div>
-        <h3>App de clientes en Google Play y App Store</h3>
-        <p>Gestión de las cuentas de desarrollador de la empresa, verificación de identidad corporativa, firma y publicación de la app de clientes sin disponer de equipos Mac.</p>
-        <ul class="tags"><li>Google Play</li><li>App Store</li><li>Azure DevOps</li></ul>
-      </article>
-
     </div>
   </div>
 </section>
