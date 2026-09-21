@@ -215,35 +215,6 @@ strong { color: var(--texto); font-weight: 600; }
 }
 @keyframes rebote { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
 
-/* ---------- Avatar (en Sobre mí) ---------- */
-.avatar {
-  width: clamp(180px, 20vw, 240px); aspect-ratio: 1; border-radius: 22px;
-  background: linear-gradient(135deg, var(--tarjeta), var(--fondo-2));
-  border: 1px solid var(--borde); box-shadow: var(--sombra);
-  display: grid; place-items: center; overflow: hidden; position: relative;
-  margin-bottom: 16px;
-}
-.avatar::before {
-  content: ''; position: absolute; inset: -40%;
-  background: conic-gradient(from 0deg, transparent, var(--acento-suave), transparent 40%);
-  animation: girar 10s linear infinite;
-}
-.avatar::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(var(--borde) 1px, transparent 1px),
-    linear-gradient(90deg, var(--borde) 1px, transparent 1px);
-  background-size: 24px 24px; opacity: .5;
-}
-.avatar img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
-.avatar:has(img)::after, .avatar:has(img)::before { display: none; }
-.avatar__iniciales {
-  position: relative; z-index: 1; font-family: var(--mono); font-weight: 700;
-  font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -.04em; color: var(--acento);
-  text-shadow: 0 0 24px var(--acento-brillo);
-}
-@keyframes girar { to { transform: rotate(360deg); } }
-
 /* ---------- Secciones ---------- */
 .seccion { padding-block: clamp(72px, 10vw, 120px); position: relative; }
 .seccion--alt { background: var(--fondo-2); }
@@ -270,7 +241,6 @@ strong { color: var(--texto); font-weight: 600; }
 .sobre { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
 .sobre__texto p { color: var(--texto-2); margin-bottom: 18px; font-size: 1.04rem; }
 .sobre__lateral { display: flex; flex-direction: column; align-items: stretch; }
-.sobre__lateral .avatar { align-self: center; }
 .sobre__claves { display: grid; gap: 10px; }
 .sobre__claves li {
   background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px;
@@ -369,7 +339,7 @@ strong { color: var(--texto); font-weight: 600; }
 .proyectos .reveal:nth-child(4), .habilidades .reveal:nth-child(4) { transition-delay: .24s; }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .entrada { opacity: 1; transform: none; transition: none; animation: none; }
-  .avatar::before, .punto, .hero__scroll, .cursor::after, .terminal__cuerpo .cur { animation: none; }
+  .punto, .hero__scroll, .cursor::after, .terminal__cuerpo .cur { animation: none; }
   .hero__red { display: none; }
 }
 
@@ -411,9 +381,6 @@ strong { color: var(--texto); font-weight: 600; }
   .hero__nombre { font-size: 26pt; text-shadow: none; }
   .hero__rol { font-size: 12pt; font-family: var(--fuente); }
   .entrada, .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
-  .avatar { width: 120px; border-radius: 50%; animation: none; margin-bottom: 8px; }
-  .avatar::before, .avatar::after { display: none; }
-  .avatar__iniciales { text-shadow: none; }
   .seccion { padding-block: 18px; break-inside: avoid; }
   .seccion__titulo { font-size: 15pt; margin-bottom: 14px; }
   .sobre { grid-template-columns: 1fr 200px; gap: 16px; }
