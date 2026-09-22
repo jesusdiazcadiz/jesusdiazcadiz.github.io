@@ -42,17 +42,32 @@
   burger.addEventListener('click', () => links.classList.toggle('abierto'));
   links.addEventListener('click', e => { if (e.target.tagName === 'A') links.classList.remove('abierto'); });
 
-  /* ---- Aparición progresiva ---- */
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reducir) {
-    const io = new IntersectionObserver((entradas) => {
-      entradas.forEach(en => {
-        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => io.observe(el));
+  /* ---- Aparición progresiva (observer + respaldo por scroll) ---- */
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  function mostrar(el) { el.classList.add('visible'); }
+  if (reducir || !('IntersectionObserver' in window)) {
+    reveals.forEach(mostrar);
   } else {
-    reveals.forEach(el => el.classList.add('visible'));
+    const io = new IntersectionObserver((entradas) => {
+      entradas.forEach(en => { if (en.isIntersecting) { mostrar(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => io.observe(el));
+    // Respaldo: cualquier elemento cuyo borde superior haya entrado en pantalla se muestra sí o sí.
+    let pendiente = false;
+    function comprobar() {
+      pendiente = false;
+      const limite = window.innerHeight * 0.92;
+      reveals.forEach(el => {
+        if (!el.classList.contains('visible') && el.getBoundingClientRect().top < limite) mostrar(el);
+      });
+    }
+    function programar() { if (!pendiente) { pendiente = true; requestAnimationFrame(comprobar); } }
+    window.addEventListener('scroll', programar, { passive: true });
+    window.addEventListener('resize', programar);
+    window.addEventListener('load', comprobar);
+    setTimeout(comprobar, 300);
+    // Última red: pasados 6 s todo lo que siga oculto se muestra.
+    setTimeout(() => reveals.forEach(mostrar), 6000);
   }
 
   /* ---- Máquina de escribir en el rol ---- */
